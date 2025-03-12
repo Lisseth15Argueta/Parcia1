@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Parcia1.Migrations
 {
     /// <inheritdoc />
-    public partial class AddCellPhoneToStudent : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -24,7 +24,7 @@ namespace Parcia1.Migrations
                     Carnet = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CantidadMaterias = table.Column<int>(type: "int", nullable: false),
                     Ciclo = table.Column<int>(type: "int", nullable: false),
-                    CellPhone = table.Column<int>(type: "int", maxLength: 15, nullable: false),
+                    CellPhone = table.Column<string>(type: "nvarchar(15)", maxLength: 15, nullable: false),
                     IsActive = table.Column<bool>(type: "bit", nullable: false),
                     CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Created = table.Column<DateTime>(type: "datetime2", nullable: false),

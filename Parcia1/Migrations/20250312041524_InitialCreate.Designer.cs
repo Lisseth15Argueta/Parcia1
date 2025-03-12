@@ -12,8 +12,8 @@ using Parcia1.Db;
 namespace Parcia1.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250311050830_ChangeCellPhoneToString")]
-    partial class ChangeCellPhoneToString
+    [Migration("20250312041524_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
