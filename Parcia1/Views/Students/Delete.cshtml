@@ -1,0 +1,16 @@
+﻿@model Parcia1.Models.Students
+
+@{
+    ViewData["Title"] = "Confirmar eliminación";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="alert alert-warning">
+    ¿Está seguro de que desea eliminar al estudiante <strong>@Model.Name @Model.LastName</strong>?
+</div>
+
+<form asp-action="Delete" asp-route-id="@Model.IdStudent" method="post">
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a href="@Url.Action("Index", "Students")" class="btn btn-secondary">Cancelar</a>
+</form>

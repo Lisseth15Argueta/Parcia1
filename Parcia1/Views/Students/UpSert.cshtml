@@ -1,0 +1,67 @@
+﻿@model Students;
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a asp-controller="Home" asp-action="Index">Home</a>
+        </li>
+        <li class="breadcrumb-item">
+            <a asp-controller="Students" asp-action="Index">Index</a>
+        </li>
+        <li class="breadcrumb-item">Agregar nuevo registro</li>
+    </ol>
+</nav>
+
+<form asp-action="UpSert" asp-controller="Students" method="POST">
+    <div asp-validation-summary="All">
+        <i class="bi bi-exclamation-triangle-fill"></i>
+    </div>
+
+    <input type="hidden" asp-for="IdStudent" value="@Model.IdStudent" placeholder="IdStudent" aria-label="IdStudent" id="IdStudent" />
+
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
+        <input type="text" class="form-control" asp-for="Name" placeholder="Nombres" aria-label="Student" id="Name" />
+    </div>
+
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon2"><i class="fas fa-user-tie"></i></span>
+        <input type="text" class="form-control" asp-for="LastName" placeholder="Apellidos" aria-label="Apellidos" id="LastName" />
+    </div>
+
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon3"><i class="fas fa-envelope"></i></span>
+        <input type="email" class="form-control" asp-for="Email" placeholder="Correo Electrónico" aria-label="Correo" id="Email" />
+    </div>
+
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon4"><i class="fas fa-birthday-cake"></i></span>
+        <input type="date" class="form-control" asp-for="BirthDate" placeholder="Fecha de Nacimiento" aria-label="Fecha de Nacimiento" id="BirthDate" />
+    </div>
+
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon5"><i class="fas fa-id-card"></i></span>
+        <input type="text" class="form-control" asp-for="Carnet" placeholder="Carnet" aria-label="Carnet" id="Carnet" />
+    </div>
+
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon6"><i class="fas fa-book"></i></span>
+        <input type="number" class="form-control" asp-for="CantidadMaterias" value="@Model.CantidadMaterias" placeholder="Cantidad de Materias" aria-label="CantidadMaterias" id="CantidadMaterias" />
+    </div>
+
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon7"><i class="fas fa-calendar"></i></span>
+        <input type="number" class="form-control" asp-for="Ciclo" value="@Model.Ciclo" placeholder="Ciclo" aria-label="Ciclo" id="Ciclo" />
+    </div>
+
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon8"><i class="fas fa-phone-alt"></i></span>
+        <input type="text" class="form-control" asp-for="CellPhone" value="@Model.CellPhone" placeholder="CellPhone" aria-label="CellPhone" id="CellPhone" />
+    </div>
+
+    <button class="btn btn-success" type="submit"><i class="fas fa-save"></i> Guardar información</button>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

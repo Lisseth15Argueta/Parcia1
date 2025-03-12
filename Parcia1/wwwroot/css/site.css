@@ -20,3 +20,11 @@ html {
 body {
   margin-bottom: 60px;
 }
+.validation-summary-errors {
+    background-color: #f8d7da; /*Rojo claro*/
+    color: #721c24; /*Rojo oscuro*/
+    border: 1px solid #f5c6cb;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}

@@ -1,0 +1,62 @@
+﻿@model List<Parcia1.Models.Students>
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">Home</a></li>
+        <li class="breadcrumb-item active">Estudiantes</li>
+    </ol>
+</nav>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 text-end">
+            <a href="@Url.Action("UpSert", "Students")" class="btn btn-primary"><span class="fas fa-plus"></span> Agregar</a>
+        </div>
+
+        @if (TempData["SuccessMessage"] != null)
+        {
+            <div class="alert alert-success mt-3">
+                <strong>@TempData["SuccessMessage"]</strong>
+            </div>
+        }
+
+        <div class="col-12 mt-3">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Correo</th>
+                        <th>Celular</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var student in Model)
+                    {
+                        <tr>
+                            <td>@student.IdStudent</td>
+                            <td>@student.Name</td>
+                            <td>@student.LastName</td>
+                            <td>@student.Email</td>
+                            <td>@student.CellPhone</td>
+                            <td>@(student.IsActive ? "Activo" : "Desactivado")</td>
+                            <td>
+                                <a asp-action="UpSert" asp-route-id="@student.IdStudent" class="btn btn-warning btn-sm"><i data-lucide="edit"></i> Editar</a>
+                                <a asp-action="Delete" asp-route-id="@student.IdStudent" class="btn btn-danger btn-sm"><i data-lucide="trash-2"></i> Eliminar</a>
+                                @section Scripts {
+                                    <script src="https://unpkg.com/lucide@latest"></script>
+                                    <script>
+                                        lucide.createIcons();
+                                    </script>
+                            }
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
